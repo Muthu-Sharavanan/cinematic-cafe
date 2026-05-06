@@ -3,6 +3,7 @@ import Story from "@/components/aardvark/Story";
 import Flavors from "@/components/aardvark/Flavors";
 import Values from "@/components/aardvark/Values";
 import Visit from "@/components/aardvark/Visit";
+import ShareButton from "@/components/aardvark/ShareButton";
 
 const Index = () => {
   return (
@@ -13,8 +14,10 @@ const Index = () => {
       <Flavors />
       <Values />
       <Visit />
+      <ShareButton />
     </main>
   );
 };
 
 export default Index;
+

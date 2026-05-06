@@ -27,8 +27,8 @@ const ValueCard = ({ icon: Icon, title, body, index }: ValueCardProps) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, x: index < 2 ? -60 : 60 }}
+      whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-10%" }}
       transition={{ duration: 0.9, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       style={{ perspective: 1000 }}
@@ -68,7 +68,13 @@ const Values = () => {
     <section id="values" className="relative w-full overflow-hidden bg-background py-24 md:py-40">
       <div className="absolute inset-0 bg-radial-glow opacity-40" />
       <div className="relative mx-auto max-w-7xl px-6 md:px-12">
-        <div className="mx-auto mb-16 max-w-3xl text-center">
+        <motion.div 
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="mx-auto mb-16 max-w-3xl text-center"
+        >
           <span className="mb-4 block text-[10px] uppercase tracking-[0.4em] text-gold">
             — Ambience & Values
           </span>
@@ -77,7 +83,7 @@ const Values = () => {
             text="A room with intention. A table with welcome."
             className="font-serif-display text-4xl leading-[1.05] tracking-tight md:text-6xl"
           />
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v, i) => (

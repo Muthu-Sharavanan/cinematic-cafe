@@ -74,11 +74,37 @@ const Hero = () => {
         </nav>
         <a
           href="#visit"
-          className="hidden rounded-full border border-border/60 px-4 py-2 text-xs uppercase tracking-[0.2em] text-foreground/80 backdrop-blur-sm transition-colors hover:border-gold hover:text-gold md:inline-block"
+          className="hidden rounded-full bg-gold px-5 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-black shadow-[0_0_15px_rgba(198,154,83,0.3)] transition-all hover:scale-105 hover:bg-gold/90 hover:shadow-[0_0_25px_rgba(198,154,83,0.5)] md:inline-block"
         >
-          Reserve
+          Reserve Table
         </a>
       </motion.header>
+
+      {/* Floating Coffee Beans / Particles */}
+      {[...Array(8)].map((_, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ 
+            opacity: [0, 0.4, 0],
+            scale: [0.5, 1, 0.5],
+            y: [0, -60, 0],
+            rotate: [0, 90, 0]
+          }}
+          transition={{ 
+            duration: 8 + (i % 5), 
+            repeat: Infinity,
+            delay: i * 0.7
+          }}
+          className="absolute hidden md:block text-gold/20 pointer-events-none z-10"
+          style={{
+            top: `${(i * 13) % 90}%`,
+            left: `${(i * 17) % 90}%`,
+          }}
+        >
+          <Coffee className="w-12 h-12" />
+        </motion.div>
+      ))}
 
       {/* Hero content */}
       <motion.div
@@ -89,33 +115,39 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-background/40 px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] text-gold backdrop-blur-md"
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-background/60 px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] text-gold backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
         >
           <span className="h-1 w-1 rounded-full bg-gold animate-pulse" />
           Thoothukudi · Est. Aardvark
         </motion.span>
 
-        <h1 className="font-serif-display text-5xl leading-[0.95] tracking-tight text-foreground sm:text-7xl md:text-[8rem]">
-          {["Where", "Metro", "Meets"].map((w, i) => (
-            <span key={i} className="block overflow-hidden">
-              <motion.span
-                className="block"
-                initial={{ y: "110%" }}
-                animate={{ y: "0%" }}
-                transition={{ duration: 1.1, delay: 0.6 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {w}
-              </motion.span>
-            </span>
-          ))}
-          <span className="block overflow-hidden italic">
+        <h1 className="font-serif-display text-5xl leading-[1.1] tracking-tight text-foreground sm:text-6xl md:text-8xl md:mt-10">
+          <span className="block overflow-hidden">
             <motion.span
-              className="block text-gradient-gold"
-              initial={{ y: "110%" }}
-              animate={{ y: "0%" }}
-              transition={{ duration: 1.1, delay: 0.96, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-block mr-4 md:mr-8"
+              initial={{ y: "110%" }} animate={{ y: "0%" }} transition={{ duration: 1.1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              Peaceful
+              Where
+            </motion.span>
+            <motion.span
+              className="inline-block"
+              initial={{ y: "110%" }} animate={{ y: "0%" }} transition={{ duration: 1.1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Metro
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden italic mt-2">
+            <motion.span
+              className="inline-block mr-4 md:mr-6"
+              initial={{ y: "110%" }} animate={{ y: "0%" }} transition={{ duration: 1.1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Meets
+            </motion.span>
+            <motion.span
+              className="inline-block text-gradient-gold"
+              initial={{ y: "110%" }} animate={{ y: "0%" }} transition={{ duration: 1.1, delay: 0.96, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Peaceful.
             </motion.span>
           </span>
         </h1>

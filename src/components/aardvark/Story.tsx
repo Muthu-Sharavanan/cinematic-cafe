@@ -13,10 +13,10 @@ const Story = () => {
         {/* Text */}
         <div className="flex flex-col justify-center">
           <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="mb-6 text-[10px] uppercase tracking-[0.4em] text-gold"
           >
             — Our Story
@@ -29,10 +29,10 @@ const Story = () => {
           />
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
             className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg"
           >
             <p>
@@ -46,10 +46,10 @@ const Story = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.8 }}
+            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
             className="mt-10 flex items-center gap-6"
           >
             <div className="h-px flex-1 bg-gradient-to-r from-gold/60 to-transparent" />

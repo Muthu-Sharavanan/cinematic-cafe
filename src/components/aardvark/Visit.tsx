@@ -14,21 +14,21 @@ const Visit = () => {
             className="font-serif-display text-5xl leading-[1] tracking-tight md:text-8xl"
           />
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.6 }}
+            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
             className="mx-auto mt-6 max-w-xl text-muted-foreground"
           >
             Reserve a table or simply walk in. The kettle is always on.
           </motion.p>
 
           <motion.a
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.8 }}
-            href="#"
+            transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
+            href="tel:+917639135222"
             className="group relative mt-10 inline-flex items-center gap-3 overflow-hidden rounded-full bg-gradient-gold px-10 py-4 text-sm uppercase tracking-[0.25em] text-primary-foreground shadow-gold"
           >
             <span className="relative">Reserve a Table</span>
@@ -36,11 +36,17 @@ const Visit = () => {
           </motion.a>
         </div>
 
-        <div className="mt-24 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border/60 bg-border/60 md:grid-cols-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-5%" }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="mt-24 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border/60 bg-border/60 md:grid-cols-3"
+        >
           {[
             { icon: MapPin, label: "Find us", value: "Beach Road, Thoothukudi" },
             { icon: Clock, label: "Hours", value: "Daily · 7 AM – 11 PM" },
-            { icon: Phone, label: "Reserve", value: "+91 90000 00000" },
+            { icon: Phone, label: "Reserve", value: "+91 76391 35222" },
           ].map((item) => (
             <div key={item.label} className="flex flex-col gap-3 bg-card p-8">
               <item.icon className="h-5 w-5 text-gold" strokeWidth={1.4} />
@@ -48,7 +54,7 @@ const Visit = () => {
               <span className="font-serif-display text-xl text-foreground">{item.value}</span>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <footer className="mt-24 border-t border-border/60 py-10">

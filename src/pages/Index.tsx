@@ -4,6 +4,7 @@ import Flavors from "@/components/aardvark/Flavors";
 import Values from "@/components/aardvark/Values";
 import Visit from "@/components/aardvark/Visit";
 import ShareButton from "@/components/aardvark/ShareButton";
+import FullMenu from "@/components/aardvark/FullMenu";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <Values />
       <Visit />
       <ShareButton />
+      <FullMenu />
     </main>
   );
 };
